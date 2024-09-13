@@ -72,7 +72,7 @@ Asegúrate de configurar las siguientes variables en tu archivo `.env`:
 ## Pasos para la Ejecución del Servicio
 
 1. Clona el Repositorio:
-   `git clone https://github.com/juansalcedo1929/nodetest.git`
+   `git clone https://github.com/juansalcedo1929/Gapsi`
 
 2. Instala las dependencias:
    `npm install`
