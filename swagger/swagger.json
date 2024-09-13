@@ -1,0 +1,104 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "API de Items",
+      "description": "API REST para manejar items en un catálogo"
+    },
+    "paths": {
+      "/items/{id}": {
+        "get": {
+          "summary": "Obtener un item por ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "ID único del item"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Item encontrado",
+              "schema": {
+                "$ref": "#/definitions/Item"
+              }
+            },
+            "404": {
+              "description": "Item no encontrado"
+            }
+          }
+        },
+        "put": {
+          "summary": "Actualizar la descripción y modelo de un item",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "description": "ID único del item"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ItemUpdate"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Item actualizado"
+            },
+            "404": {
+              "description": "Item no encontrado"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Item": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 10
+          },
+          "nombre": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "descripcion": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "precio": {
+            "type": "number",
+            "format": "float"
+          },
+          "modelo": {
+            "type": "string",
+            "maxLength": 10
+          }
+        }
+      },
+      "ItemUpdate": {
+        "type": "object",
+        "properties": {
+          "descripcion": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "modelo": {
+            "type": "string",
+            "maxLength": 10
+          }
+        }
+      }
+    }
+  }
+  
